@@ -1,0 +1,13 @@
+﻿@using V2ex.Shared;
+<Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="new[] {typeof(V2exSharedModule).Assembly}">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(DefaultLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@typeof(DefaultLayout)">
+            <p role="alert">Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>

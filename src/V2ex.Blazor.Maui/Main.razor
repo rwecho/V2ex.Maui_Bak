@@ -1,0 +1,49 @@
+﻿@using Blazorise
+@using Blazorise.Components
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Routing
+@using V2ex;
+@using V2ex.Shared;
+<Fluxor.Blazor.Web.StoreInitializer />
+
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+<Blazorise.ThemeProvider Theme="@theme">
+	<Router AppAssembly="@typeof(Main).Assembly" AdditionalAssemblies="new []{typeof(V2exSharedModule).Assembly}">
+		<Found Context="routeData">
+			<AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(DefaultLayout)">
+                <Authorizing>
+                    <Div><Text>正在授权中...</Text></Div>
+                </Authorizing>
+                <NotAuthorized>
+					<Div>
+					<Div><Text>未授权...</Text></Div>
+					<Div><Button Color="Color.Primary" Clicked="@RedirectToLogin">点击跳转到首页</Button></Div>
+					</Div>
+                </NotAuthorized>
+            </AuthorizeRouteView>
+			<FocusOnNavigate RouteData="@routeData" Selector="h1" />
+		</Found>
+		<NotFound>
+			<LayoutView Layout="@typeof(DefaultLayout)">
+				<p role="alert">Sorry, there's nothing at this address.</p>
+			</LayoutView>
+		</NotFound>
+	</Router>
+</Blazorise.ThemeProvider>
+<NotificationProvider />
+
+
+@code {
+
+	[Inject]
+	private NavigationManager NavigationManager { get; set; } = null!;
+	private Theme theme = new Theme
+	{
+
+	};
+
+	private void RedirectToLogin()
+	{
+		this.NavigationManager.NavigateTo("/");
+	}
+}

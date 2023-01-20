@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	<title>V2ex</title>
+	<base href="/" />
+	<link rel="stylesheet" href="_content/V2ex.Shared/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="_content/V2ex.Shared/css/fontawesome-all.css">
+
+	<link href="_content/V2ex.Shared/css/app.css" rel="stylesheet" />
+	<link href="V2ex.Blazor.Maui.styles.css" rel="stylesheet" />
+
+	<link href="_content/Blazorise/blazorise.css" rel="stylesheet" />
+	<link href="_content/Blazorise.Bootstrap/blazorise.bootstrap.css" rel="stylesheet" />
+	<link href="_content/Blazorise.Snackbar/blazorise.snackbar.css" rel="stylesheet" />
+	<link href="_content/Blazorise.LoadingIndicator/blazorise.loadingindicator.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<div class="status-bar-safe-area"></div>
+
+	<div id="app">
+		<div style="position:absolute; top:30vh; width:100%; text-align:center">
+			<h1></h1>
+			<div style="display:flex; gap:10px; justify-content:center; align-items:center">
+				<div class="spinner-border" role="status"></div>
+				正在加载中...
+			</div>
+		</div>
+	</div>
+
+	<div id="blazor-error-ui">
+		An unhandled error has occurred.
+		<a href="" class="reload">Reload</a>
+		<a class="dismiss">🗙</a>
+	</div>
+
+	<script src="_framework/blazor.webview.js" autostart="false"></script>
+	<script src="_content/V2ex.Shared/lib/jquery.slim.min.js" ></script>
+	<script src="_content/V2ex.Shared/lib/popper.min.js" ></script>
+	<script src="_content/V2ex.Shared/lib/bootstrap.min.js" ></script>
+</body>
+
+</html>

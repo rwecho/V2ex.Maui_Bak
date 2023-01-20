@@ -1,0 +1,75 @@
+﻿@page "/"
+<div>
+    <Layout Sider>
+        <LayoutSider>
+            <LayoutSiderContent >
+                <Bar @ref="@_sidebar" Mode="BarMode.VerticalInline"
+                     Background="Background.Light"
+                     ThemeContrast="ThemeContrast.Light">
+                    <BarBrand>
+                        <BarItem>
+                            <BarLink To="#">
+                                <Heading Size="HeadingSize.Is5" TextWeight="TextWeight.Bold">OmniKey</Heading>
+                                <Heading Size="HeadingSize.Is6" TextColor="TextColor.Secondary">&nbsp; 许可证程序</Heading>
+                            </BarLink>
+                        </BarItem>
+                    </BarBrand>
+                    <BarMenu>
+                        <BarStart>
+                            <BarItem>
+                                <BarLink To="" Match="Match.All">
+                                    <BarIcon IconName="Blazorise.Icons.FontAwesome.FontAwesomeIcons.Certificate"></BarIcon>
+                                    许可证
+                                </BarLink>
+                            </BarItem>
+                        </BarStart>
+
+                        <BarEnd>
+                            <BarItem>
+                                <BarLink To="about">
+                                    <BarIcon IconName="IconName.InfoCircle"></BarIcon>
+                                    关于
+                                </BarLink>
+                            </BarItem>
+                        </BarEnd>
+                    </BarMenu>
+                </Bar>
+            </LayoutSiderContent>
+        </LayoutSider>
+        <Layout>
+            <LayoutHeader Fixed>
+                 <Bar Mode="BarMode.Horizontal"
+                 Background="Background.Light"
+                 ThemeContrast="ThemeContrast.Light">
+
+                <BarStart Display="Display.Flex.Row.Flex" Flex="Flex.AlignItems.Center">
+                    <BarItem  >
+                        <BarToggler Display="Display.Block.None.OnFullHD" Bar="@_sidebar" />
+                    </BarItem>
+                    <Breadcrumb Style="margin-bottom:0; background-color:transparent; ">
+                        <BreadcrumbItem>
+                            <BreadcrumbLink To="#" TextColor="TextColor.Secondary">首页</BreadcrumbLink>
+                        </BreadcrumbItem>
+                    </Breadcrumb>
+                </BarStart>
+                <BarEnd Flex="Flex.Row.AlignItems.Center">
+                    <Div Margin="Margin.Is2.OnX"></Div>
+                </BarEnd>
+            </Bar>
+            </LayoutHeader>
+            <LayoutContent>
+                Content
+            </LayoutContent>
+        </Layout>
+    </Layout>
+</div>
+@code {
+    private Bar _sidebar = null!;
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = null!;
+    private void Test()
+    {
+        this.NavigationManager.NavigateTo("/authorize");
+    }
+}

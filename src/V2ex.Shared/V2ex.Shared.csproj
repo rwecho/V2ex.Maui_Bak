@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<Import Project="..\..\common.props" />
+
+	<PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+		<RootNamespace>V2ex</RootNamespace>
+  </PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Pages\Index\Index.razor.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Pages\Index\Index.razor.css" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Blazorise.Bootstrap" Version="1.1.2" />
+		<PackageReference Include="Blazorise.Components" Version="1.1.2" />
+		<PackageReference Include="Blazorise.LoadingIndicator" Version="1.1.2" />
+		<PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.1.2" />
+		<PackageReference Include="Fluxor.Blazor.Web" Version="5.5.0" />
+		<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="5.5.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.10" />
+		<PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.0" />
+		<PackageReference Include="Volo.Abp.Http.Client.IdentityModel" Version="6.0.1" />
+	</ItemGroup>
+</Project>
